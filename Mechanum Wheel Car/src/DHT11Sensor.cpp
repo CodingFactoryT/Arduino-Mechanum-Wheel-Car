@@ -1,8 +1,8 @@
 #include "DHT11Sensor.h"
 
-DHT11Sensor::DHT11Sensor() {
-    pinMode(DHT11PIN, OUTPUT);  
+DHT11Sensor::DHT11Sensor() : dht11_() {
     Serial.println("DHT11-Sensor initialized");
+    lastRead_ = millis() - DHT11_READING_INTERVALL - 1;
 }
 
 int DHT11Sensor::getHumidity(){

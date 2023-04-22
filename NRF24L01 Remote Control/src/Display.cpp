@@ -89,7 +89,7 @@ void Display::updateCollisionWarnings(uint8_t distanceFront, uint8_t distanceRig
 }
 
 void Display::updateCollisionWarning(uint8_t distance, CarSide carSide) {
-    bool isCollisionWarningActive = distance < COLLISSION_WARNING_DISTANCE;
+    bool isCollisionWarningActive = distance < COLLISSION_WARNING_DISTANCE && distance != 0;    //if distance == 0, the distance is bigger than the max distance specified
 
     switch(carSide) {
         case FRONT:

@@ -103,15 +103,15 @@ void loop() {
     dataToSend[7] = currentMode;
 
     communicator->send(dataToSend);
-
+    delay(30);
     uint8_t* receivedData = communicator->getReceivedData();
 
     if(communicator->isConnectionAvailable()) {
         communicator->printReceivedData();
+        display->updateCollisionWarnings(*receivedData, *(receivedData + 1), *(receivedData + 2), *(receivedData + 3));
         display->updateTemperature(receivedData + 4);
         display->updateHumidity(receivedData + 5);
         display->updateLightIntensity(receivedData + 6);
-        display->updateCollisionWarnings(*receivedData, *(receivedData + 1), *(receivedData + 2), *(receivedData + 3));
     }
 
     communicator->updateConnectionLost();

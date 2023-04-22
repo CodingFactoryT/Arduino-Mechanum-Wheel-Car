@@ -4,6 +4,7 @@ UltrasonicSensor::UltrasonicSensor(int triggerPin, int echoPin, int maxDistance)
     ultrasonicSensor_(triggerPin, echoPin, maxDistance)
 {
     distanceCM_ = 1000;
+    lastRead_ = millis() - ULTRASONIC_READING_INTERVALL - 1;
 }
 
 unsigned int UltrasonicSensor::getDistanceCM(){

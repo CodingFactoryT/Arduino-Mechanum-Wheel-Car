@@ -226,14 +226,15 @@ void Car::sendSensorData() {
     dataToSend[3] = ultrasonicSensorLeft_.getDistanceCM();
     dataToSend[4] = dht11Sensor_.getTemperature();
     dataToSend[5] = dht11Sensor_.getHumidity();
+    dataToSend[6] = -1; //sensor not added in the hardware of the car yet
 
     communicator_.send(dataToSend);  
 
-    /* Serial.print(dataToSend[0]);
+ /* Serial.print(dataToSend[0]);
     Serial.print("|");Serial.print(dataToSend[1]);
     Serial.print("|");Serial.print(dataToSend[2]);
     Serial.print("|");Serial.print(dataToSend[3]);
     Serial.print("|");Serial.print(dataToSend[4]);
     Serial.print("|");Serial.print(dataToSend[5]);
-    Serial.print("|"); */
+    Serial.print("|");Serial.println(dataToSend[6]); */
 }
