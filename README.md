@@ -1,5 +1,5 @@
 # Mechanum-Wheel-Car
-![Image was not able to load]("./images/readmeImage.jpg")
+![Image was not able to load](./images/cover.jpg)   <br>
 Make sure you check out the other [images](./images) as well
 ## Libraries
 Here you can see which libraries were used to program the two components of this project:
