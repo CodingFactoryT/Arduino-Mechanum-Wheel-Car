@@ -44,11 +44,6 @@ void Car::driveMotor(Motor motor, MotorDirection direction)
     } // if none of the if-statements triggered, the direction is
       // STOP and both pins are set to LOW as they were initialized
 
-    /*     if (direction == STOP)
-        {
-            speed = 0;
-        } */
-
     int motorArrayPosition = static_cast<int>(motor);
     int enPin = motorPins[motorArrayPosition][0];
     int in1Pin = motorPins[motorArrayPosition][1];
