@@ -44,10 +44,10 @@ void Car::driveMotor(Motor motor, MotorDirection direction)
     } // if none of the if-statements triggered, the direction is
       // STOP and both pins are set to LOW as they were initialized
 
-    if (direction == STOP)
-    {
-        speed = 0;
-    }
+    /*     if (direction == STOP)
+        {
+            speed = 0;
+        } */
 
     int motorArrayPosition = static_cast<int>(motor);
     int enPin = motorPins[motorArrayPosition][0];
@@ -102,17 +102,17 @@ void Car::updateMotorDirections(Joystick joystick1, Joystick joystick2)
 
         case MIDDLE:
         {
-            MotorDirection directionAandC = REVERSE; // automatically handles state if joy2X is LEFT
-            MotorDirection directionBandD = FORWARD;
+            directionAandD = REVERSE; // automatically handles state if joy2X is LEFT
+            directionBandC = FORWARD;
             if (joy2X == RIGHT)
             {
-                directionAandC = FORWARD;
-                directionBandD = REVERSE;
+                directionAandD = FORWARD;
+                directionBandC = REVERSE;
             }
-            driveMotor(MOTOR_A, directionAandC);
-            driveMotor(MOTOR_B, directionBandD);
-            driveMotor(MOTOR_C, directionAandC);
-            driveMotor(MOTOR_D, directionBandD);
+            driveMotor(MOTOR_A, directionAandD);
+            driveMotor(MOTOR_B, directionBandC);
+            driveMotor(MOTOR_C, directionBandC);
+            driveMotor(MOTOR_D, directionAandD);
         }
         break;
 
@@ -147,17 +147,17 @@ void Car::updateMotorDirections(Joystick joystick1, Joystick joystick2)
 
         if (joy1Y == MIDDLE)
         {
-            directionAandD = REVERSE; // automatically handles state if joy1X is LEFT
-            directionBandC = FORWARD;
+            MotorDirection directionAandC = REVERSE; // automatically handles state if joy1X is LEFT
+            MotorDirection directionBandD = FORWARD;
             if (joy1X == RIGHT)
             {
-                directionAandD = FORWARD;
-                directionBandC = REVERSE;
+                directionAandC = FORWARD;
+                directionBandD = REVERSE;
             }
-            driveMotor(MOTOR_A, directionAandD);
-            driveMotor(MOTOR_B, directionBandC);
-            driveMotor(MOTOR_C, directionBandC);
-            driveMotor(MOTOR_D, directionAandD);
+            driveMotor(MOTOR_A, directionAandC);
+            driveMotor(MOTOR_B, directionBandD);
+            driveMotor(MOTOR_C, directionAandC);
+            driveMotor(MOTOR_D, directionBandD);
         }
     }
 

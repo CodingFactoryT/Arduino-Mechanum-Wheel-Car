@@ -12,13 +12,13 @@
 #define MOTOR_B_IN1 25 // A  B
 #define MOTOR_B_IN2 24 //
                        // C  D
-#define MOTOR_C_EN 3
-#define MOTOR_C_IN1 27
-#define MOTOR_C_IN2 26
+#define MOTOR_D_EN 3
+#define MOTOR_D_IN1 27
+#define MOTOR_D_IN2 26
 
-#define MOTOR_D_EN 5
-#define MOTOR_D_IN1 28
-#define MOTOR_D_IN2 29
+#define MOTOR_C_EN 5
+#define MOTOR_C_IN1 28
+#define MOTOR_C_IN2 29
 
 #define ULTRASONIC_FRONT_TRIG 38
 #define ULTRASONIC_FRONT_ECHO 39
