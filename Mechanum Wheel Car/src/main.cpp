@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <Car.h>
 
-Car* car = nullptr;
+Car *car = nullptr;
 
 void setup()
 {
@@ -12,6 +12,6 @@ void setup()
 
 void loop()
 {
-    car->update();    
+    car->update();
     delay(50);
 }
