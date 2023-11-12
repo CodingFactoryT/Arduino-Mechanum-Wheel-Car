@@ -10,7 +10,8 @@ Car::Car() : ultrasonicSensorFront_(ULTRASONIC_FRONT_TRIG, ULTRASONIC_FRONT_ECHO
              ultrasonicSensorBack_(ULTRASONIC_BACK_TRIG, ULTRASONIC_BACK_ECHO, ULTRASONIC_MAX_DISTANCE),
              ultrasonicSensorLeft_(ULTRASONIC_LEFT_TRIG, ULTRASONIC_LEFT_ECHO, ULTRASONIC_MAX_DISTANCE),
              ultrasonicSensorRight_(ULTRASONIC_RIGHT_TRIG, ULTRASONIC_RIGHT_ECHO, ULTRASONIC_MAX_DISTANCE),
-             camera_()
+             camera_(),
+             lightSensor_()
 {
     initMotors();
     stopAllMotors();
@@ -222,6 +223,7 @@ void Car::sendSensorData()
     ultrasonicSensorRight_.update();
     ultrasonicSensorBack_.update();
     ultrasonicSensorLeft_.update();
+    lightSensor_.update();
 
     dataToSend[0] = ultrasonicSensorFront_.getDistanceCM();
     dataToSend[1] = ultrasonicSensorRight_.getDistanceCM();
@@ -229,7 +231,7 @@ void Car::sendSensorData()
     dataToSend[3] = ultrasonicSensorLeft_.getDistanceCM();
     dataToSend[4] = dht11Sensor_.getTemperature();
     dataToSend[5] = dht11Sensor_.getHumidity();
-    dataToSend[6] = -1; // sensor not added in the hardware of the car yet
+    dataToSend[6] = lightSensor_.getLightIntensity();
 
     communicator_.send(dataToSend);
 

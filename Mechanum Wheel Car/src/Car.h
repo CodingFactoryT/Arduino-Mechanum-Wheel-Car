@@ -3,6 +3,7 @@
 #include <DHT11Sensor.h>
 #include <UltrasonicSensor.h>
 #include <Camera.h>
+#include <LightSensor.h>
 
 #define MOTOR_A_EN 12
 #define MOTOR_A_IN1 22
@@ -31,6 +32,8 @@
 
 #define ULTRASONIC_MAX_DISTANCE 100
 
+#define LIGHT_SENSOR A0
+
 enum Motor
 {
     MOTOR_A,
@@ -56,6 +59,7 @@ public:
     UltrasonicSensor ultrasonicSensorRight_;
     DHT11Sensor dht11Sensor_;
     Camera camera_;
+    LightSensor lightSensor_;
 
     Car();
     void stopAllMotors();
